@@ -20,9 +20,10 @@ script:
 after_success:
 - docker push ${IMAGE_REPO}:${IMAGE_TAG}
 notifications:
-  email:
+  email: false
   slack:
     rooms:
+      secure: SkY3y49cIV67HApVRLl+P6qSGdWNwhgsDGbK16dgxzPeoaZI+6n9GDUA9sqdy2E0Q0JrtU+WGGiUL6aM0SMRQFKmW39ueWyx36X9vS0wq1apcZiXkVqKuZnaCiF3Jk3/tbMAhRWZGa/H+jNLxnFnv7nSEps15sXw4xVolnTdt9rSYnOHwzNqwCy1I1IatFhLoTCBK6G+L3QV2O29J40O0uUmhsrmu1BWg0DhkTUX9c0FXafzWmGy0CM6tLUcRfLeKiFZjgpy8FM8z6+snf8iHD2ug75uUyVUwkp5YTWp3NY2yGwjBAHAGV5usOAp5islLw1s9i/TrEygoA6DDPw3oQi5JF6teQyjRRBwwlXvqdvK4feve+lKJnBiEwtEpVi3WCuLAwr1MxdZPO4adi3NEsl7HGYeN+Xwjh9UKP/+AxVmJIBedXP4vVEs0Kinda5vaZ6H2hOtqugU1+0uVQWVDJ6/So8LdsbW7HH4Cfqjts1lQa8JsJZXG9hSfbdusYAWCI9bU900vzKhifKmjrrS8Y9bZGXDwOmru0/4JZ7cdlW5+xfeUrF2Dslpv5nxL5bR1Mp33bCjFt6jxFAnZaWoYXYztuevPRsenMGsJzH3SDbZfWvQDidWNlGZSMJ6u+abN1yvuAObRiLpoinx0ae1gw56GPPNp7fE5KYCTntgHyw=
     on_success: change
     on_failure: change
     on_pull_requests: false
