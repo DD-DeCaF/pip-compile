@@ -16,7 +16,7 @@ before_install:
 install:
 - make build
 script:
-- docker run ${IMAGE_REPO}:${IMAGE_HASH_TAG} --help
+- docker run ${IMAGE_REPO}:${IMAGE_TAG} --help
 after_success:
 - docker push ${IMAGE_REPO}:${IMAGE_TAG}
 notifications:

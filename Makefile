@@ -4,7 +4,7 @@
 # Variables                                                                    #
 ################################################################################
 
-# Get the image tag from the environment, argument, or default value.
+IMAGE_REPO ?= dddecaf/pip-compile
 IMAGE_TAG ?= 3.6-alpine3.8
 
 ################################################################################
@@ -13,7 +13,7 @@ IMAGE_TAG ?= 3.6-alpine3.8
 
 ## Build the local docker image.
 build:
-	docker build --tag pip-compile:$(IMAGE_TAG) .
+	docker build --tag $(IMAGE_REPO):$(IMAGE_TAG) .
 
 ################################################################################
 # Self Documenting Commands                                                    #
