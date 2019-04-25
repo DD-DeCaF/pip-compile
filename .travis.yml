@@ -1,0 +1,28 @@
+sudo: required
+language: minimal
+git:
+  depth: 2
+services:
+- docker
+branches:
+  only:
+  - master
+env:
+  global:
+  - IMAGE_REPO=dddecaf/pip-compile
+  - IMAGE_TAG=3.6-alpine3.8
+before_install:
+- echo ${DOCKER_PASSWORD} | docker login -u=decaftravis --password-stdin
+install:
+- make build
+script:
+- docker run ${IMAGE_REPO}:${IMAGE_HASH_TAG} --help
+after_success:
+- docker push ${IMAGE_REPO}:${IMAGE_TAG}
+notifications:
+  email:
+  slack:
+    rooms:
+    on_success: change
+    on_failure: change
+    on_pull_requests: false
